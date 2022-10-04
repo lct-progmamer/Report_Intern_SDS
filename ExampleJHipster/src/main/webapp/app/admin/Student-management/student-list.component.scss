@@ -1,0 +1,84 @@
+#table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table td,
+#table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table tr:hover {
+  background-color: #ddd;
+}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#table tbody {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.pagination div {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.pagination div.active {
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination div:hover:not(.active) {
+  background-color: gray;
+  border-radius: 5px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu-item {
+  margin-left: 20px;
+}
+
+.menu-item button {
+  margin: 11px 0px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.menu-item input {
+  height: 38px;
+}
+
+.inputFilter {
+  margin: 10px 10px;
+  width: 100px;
+}
+.checkBoxDelete {
+  width: 20px;
+  height: 20px;
+}

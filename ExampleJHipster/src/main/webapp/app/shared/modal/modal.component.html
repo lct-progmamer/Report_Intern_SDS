@@ -1,0 +1,48 @@
+<div *ngIf="studentUpdate != null">
+  <div class="modal-header">
+    <h2 class="">{{ titleUpdate }}</h2>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+  </div>
+  <div class="modal-body">
+    <label>Ma SV</label>
+    <input type="text" style="width: 100%; padding: 12px 20px" readonly [value]="studentUpdate.maSv" />
+    <label>Name</label>
+    <input type="text" #nameUpdate style="width: 100%; padding: 12px 20px" [value]="studentUpdate.name" />
+    <label>Class</label>
+    <input type="text" #classUpdate style="width: 100%; padding: 12px 20px" [value]="studentUpdate.clazz" />
+    <label>Score</label>
+    <input type="number" #scoreUpdate style="width: 100%; padding: 12px 20px" [value]="studentUpdate.score" />
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">Close</button>
+    <button
+      *ngIf="studentUpdate"
+      type="button"
+      class="btn btn-primary"
+      (click)="UpdateModal(studentUpdate.maSv!, nameUpdate.value, classUpdate.value, scoreUpdate.value)"
+    >
+      Update
+    </button>
+  </div>
+</div>
+
+<div *ngIf="studentUpdate == null">
+  <div class="modal-header">
+    <h2 class="">{{ titleCreate }}</h2>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+  </div>
+  <div class="modal-body">
+    <label>Name</label>
+    <input type="text" placeholder="enter name" #name style="width: 100%; padding: 12px 20px" />
+    <label>Class</label>
+    <input type="text" placeholder="enter class" #class style="width: 100%; padding: 12px 20px" />
+    <label>Score</label>
+    <input type="number" placeholder="enter score" #score style="width: 100%; padding: 12px 20px" />
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">Close</button>
+    <button *ngIf="!studentUpdate" type="button" class="btn btn-primary" (click)="saveModal(name.value, class.value, score.value)">
+      Save
+    </button>
+  </div>
+</div>

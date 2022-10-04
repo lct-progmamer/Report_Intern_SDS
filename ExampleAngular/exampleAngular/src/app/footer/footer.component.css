@@ -1,0 +1,13 @@
+#footer{
+  height: 30px;
+  width: 100%;
+  background: #04AA6D;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  color: #fff;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}

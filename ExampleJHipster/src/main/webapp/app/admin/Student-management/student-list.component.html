@@ -1,0 +1,61 @@
+<nav class="menu">
+  <div class="menu-item">
+    <button class="btn btn-success" (click)="reload()">
+      <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+      Refesh
+    </button>
+  </div>
+  <div class="menu-item">
+    <button class="btn btn-success" (click)="openModal()">
+      <fa-icon icon="user-plus"></fa-icon>
+      Create
+    </button>
+  </div>
+  <div class="menu-item">
+    <input type="text" placeholder="Enter student name" #studentName />
+    <button class="btn btn-success" (click)="SearchStudent(studentName.value)">
+      <fa-icon icon="search"></fa-icon>
+      Search
+    </button>
+  </div>
+  <div class="menu-item" style="margin-left: 250px">
+    Min MSV: <input type="number" #minMaSV class="inputFilter" [defaultValue]="0" [value]="minId" /> Max MSV:
+    <input type="number" #maxMaSV class="inputFilter" [defaultValue]="0" [value]="maxId" />
+    <button class="btn btn-success" (click)="filterStudent(minMaSV.value, maxMaSV.value)">Filter</button>
+  </div>
+</nav>
+<table id="table">
+  <thead>
+    <tr>
+      <th style="width: 150px" id="maSv" (click)="Sort($event)">mã sinh viên <fa-icon icon="sort"></fa-icon></th>
+      <th style="width: 300px" id="name" (click)="Sort($event)">Họ tên <fa-icon icon="sort"></fa-icon></th>
+      <th id="clazz" (click)="Sort($event)">Lớp <fa-icon icon="sort"></fa-icon></th>
+      <th id="score" (click)="Sort($event)">Điểm <fa-icon icon="sort"></fa-icon></th>
+      <th colspan="2">Thao Tác</th>
+      <th style="width: 200px">
+        <button class="btn btn-danger" (click)="deleteMulti()">Delete Multiple</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let student of students">
+    <tr>
+      <td>{{ student.maSv }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.clazz }}</td>
+      <td>{{ student.score }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="openModalUpdate(student)">Update</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" *ngIf="student.maSv" (click)="deleteStudent(student.maSv)">Delete</button>
+      </td>
+      <td>
+        <input type="checkbox" class="checkBoxDelete" [value]="student.maSv" (change)="checkDelete($event)" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="isPaginationShow" class="d-flex justify-content-center" style="margin-top: 10px">
+  <ngb-pagination [collectionSize]="totalStudents" [pageSize]="pageSize" [maxSize]="3" (pageChange)="pagination($event)"></ngb-pagination>
+</div>

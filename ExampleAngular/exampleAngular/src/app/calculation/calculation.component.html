@@ -1,0 +1,53 @@
+<table id="table">
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Number 1</th>
+      <th>Number 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="number-input">
+      <td></td>
+      <td>
+        <input type="number" placeholder="Enter number 1" #num1 required/>
+      </td>
+      <td>
+        <input type="number" placeholder="Enter number 2" #num2 required/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-primary button" id="add" (click)="Add(num1.value , num2.value)">+</button>
+      </td>
+      <td colspan="2">
+        <span>{{add}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-primary button" id="sub" (click)="Sub(num1.value , num2.value)">-</button>
+      </td>
+      <td colspan="2">
+        <span>{{sub}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-primary button" id="Multiple" (click)="Multiple(num1.value , num2.value)">*</button>
+      </td>
+      <td colspan="2">
+        <span>{{mul}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-primary button" id="divide" (click)="Divide(num1.value , num2.value)">/</button>
+      </td>
+      <td colspan="2">
+        <span>{{div}}</span>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

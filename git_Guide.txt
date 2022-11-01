@@ -1,0 +1,152 @@
+
+0, create folder
+mkdir folderName
+
+
+1,  check version git
+git --version
+
+2, login to git
+git config --global user.name "username"
+git config --global user.email "password"
+
+3, initialize git
+git init
+
+4, check list file in folder
+ls
+
+5, check status of project
+git status
+
+6, add a item to project in git
+git add itemName
+
+7, add all item to project in git
+git add --all   or   git add -A   or git add .
+
+8, commit in git
+git commit -m "message commit"
+
+9, check small change in project
+git status --short
+
+ --> A : file added to stage
+     M : modified files
+     D : deleted files
+
+
+10, commit small change
+git commit -a -m "message"
+
+11, view history of committing in project
+git log
+
+--> to log message commit in a line : 
+git log --oneline 
+
+--> to log message commit except merge branch
+git log --no-merges
+
+12, to view commands in git
+git help
+
+13, create new brand 
+git brand brandName or git checkout -b brandName
+
+--> view list brand is merged in to main
+git brand --merged
+
+
+14, view list brand in project
+git brand
+
+15, to transfer to different brand
+git checkout brandName
+
+16, to merge a brand to master
+  B1 : checkout to master brand
+  B2 : git merge brandName
+  
+17, delete a brand in project
+git brand -d brandName
+
+18, To add a remote git project 
+git remote add origin URL
+
+19, add master to project and set it default 
+git push --set-upstream origin master
+
+20, pull is combination of fetch and merge
+
+-- gets all the change history of  branch/repo.
+git fetch origin
+
+-- to view different of 2 brand
+git diff brandName..brandName
+
+
+21, A fork is a copy of a repository. This is useful when you want to contribute 
+to someone else's project or start your own project based on theirs.
+
+22, clone repository from git
+git clone URL
+
+23, remote a file in repo
+git rm fileName
+
+24, rename a git remote
+git remote rename oldName newName
+
+25, change remote
+git remote -v
+
+
+26, create gitIgnore in repo
+touch .gitignore
+
+27, using  git revert to back to the last commit and commit it
+
+28, find the previous commit and commit it (remove the list commit after it)
+git reset commit-Hast (ex : git reset 9a9add8)
+
+29, change commit message.
+git commit --amend -m "new massage"
+
+
+30,temporary save file code 
+git stash save "message"
+
+31, check list temporary save
+git stash list
+
+32, back to temporary save to continue code
+git stash pop or git stash 'message when save'
+
+33, to add per item in changes
+
+git add -p
+
+34, rename branch
+git branch -m newBranchName
+
+35,view all of history commit
+git reflog
+
+36, checkout to branch is deleted
+	B1 : git reflog
+	B2 : git branch branchName commitHash
+
+37, back to the before of merged or pull 
+git reset --hard brandName
+
+
+
+
+
+  
+
+
+
+
+

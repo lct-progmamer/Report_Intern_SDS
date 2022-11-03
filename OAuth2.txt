@@ -1,0 +1,58 @@
+----- Tìm hiểu về OAuth2-----
+
+
+1, OAuth2 là loại cần thực hiện triển khai ở cả client và server
+2, Có một số loại chính
+	- Resource Owner Password Credentials
+		+ Quy trình:
+			1. Server yêu cầu nhập username/password
+			2. Người dùng nhập thông tin xác thực.
+			3. server trả lại token hoặc refresh và cho phép người đăng nhập truy cập vào
+			
+	- Authorization Code
+		+ Quy trình:
+			1. client gửi 1 đường link đến server để người dùng 
+			nhận lại 1 authorization_code. (link chứa các thông tin cho phép server
+			định danh và respone lại).
+			2. Người dùng nhập thông tin đăng nhập.
+			3. Server xác thực thông tin đăng nhập và redirects người dùng đến 
+			redirect URL cùng với 1 authorization_code.
+			4. Ứng ụng request cùng authorization_code để server cấp token hoặc refesh.
+			5. ứng dụng có thể truy cập vào hệ thống.
+	
+	- Implicit và Client Credentials
+		+ quy trình khá guống với loại Authorization Code, tuy nhiên do có tính chất bảo mật nên Server sẽ 
+		không gửi Authorization code về mà sẽ trự tiếp gửi token về cho ứng dụng.
+		+ Loại này ko hỗ trợ refesh token cho ứng dụng.
+	
+3, bao gồm 1 số thành phần: 
+	- Resource Owner: cấp quyền truy cập, chủ sở hữu của tài nguyên mà ứng dụng muốn lấy
+	- Resource server : xử lý yêu cầu truy cập đến tài nguyên được bảo vệ
+	- Client : là những ứng dụng bên thứ 3 muốn truy cập phần tài nguyên được chia sẻ 
+	với tư cách của người sở hữu (resource owner) và tất nhiên trước khi truy cập ứng dụng cần được sự ủy quyền của user.
+	- Authorization Server: làm nhiệm vụ xác thực , kiếm tra thông tin của user gửi đến. cấp access token cho ứng dụng truy cập.
+	(đôi khi: Resource server cũng chính là Authorization server)
+	
+
+4, Access Token : là đoạn mã dúng để xác thực quyền truy cập, cho phép ưng dụng bên thứ 3 có thể truy cập vào những dữ liệu của ngời dùng trong phạm vi đc cho phép.
+Được hiểu nôm na là giấy thông hành cho các request của client lên server. 
+Nó sẽ được đính vào phần header vào mỗi request lên server để request được xác thực.
+--> chính vì sự tiện lợi đó mà khi token bị lỗ --> thông tin dễ dàng bị đánh cắp hoặc bị fake request từ bên ngoài.
+==> token cần có 1 giới hạn sử dụng ngắn để tránh tình trạng bị đánh cắp.
+và khi token bị hết hạn thì client cần gửi yêu cầu đến server để đc cấp lại.
+
+
+5, Refresh token
+	- được sinh ra cùng lúc với access token tuy nhiên có chức năng khác 
+	--> được sử dụng để client có thể gửi đi để xin authorization_server cấp lại access token khi nó hết hạn
+	- Do đặc thù đó mà thời hạn của fresh token lâu hơn nhiều so với access token
+	- khi logout thì fresh token cũng sẽ bị xóa.
+	
+6, 	- Client Identifier(client ID): chuỗi ký tự được sử dụng định danh ứng dụng
+	- Client Secret : được hiểu như password để client có thể liên lạc đến Authorization Server
+	
+	
+	
+	
+			
+			
